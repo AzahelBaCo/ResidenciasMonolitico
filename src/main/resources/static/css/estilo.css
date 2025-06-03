@@ -1,0 +1,141 @@
+:root {
+  --color-body-bg: #bcf4d4;
+  --color-header-bg: #14854f;
+  --color-footer-bg: #14854f;
+  --color-container-bg:#99dfbd;
+}
+
+html, body {
+  height: 100%;
+}
+
+.main-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Estilos generales */
+body {
+	background-color: var(--color-body-bg);
+	font-family: sans-serif;
+	display: flex;
+	flex-direction: column;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
+
+.spamusu{
+	color: white;
+	font-size: 15px;
+}
+
+.container {
+	width: 90%;
+	height: 90%;
+	margin: auto;
+	background:#99dfbd;
+	padding: 2rem;
+	border-radius: 10px;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+.containerl {
+	width: 90%;
+	height: 90%;
+	margin: auto;
+	padding: 2rem;
+	border-radius: 10px;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.table-section{
+	background:#99dfbd;
+}
+
+
+a, .btn-accent {
+  background-color: var(--color-footer-bg);
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  text-decoration: none;
+  display: inline-block;
+}
+/*
+a:hover, .btn-accent:hover {
+  background-color:#33ab72;  tono más oscuro del acento 
+}
+*/
+/* Navbar */
+.navbar {
+	font-family: sans-serif;
+	padding: 10px;
+	font-size: 20px;
+	background-color: var(--color-header-bg); /* Azul marino */
+}
+
+.navbar-brand, .nav-link, footer {
+	color: #FFFFFF !important; /* Dorado */
+}
+
+
+/* Sección de formulario */
+.form-section {
+	background-color: white;
+	border-radius: 12px;
+	padding: 2rem;
+	margin-top: 2rem;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Sección de tabla */
+.table-section {
+	background-color: 99dfbd;
+	border-radius: 12px;
+	padding: 2rem;
+	margin-top: 2rem;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer */
+footer {
+  background-color: var(--color-footer-bg);
+  padding: 1rem 0;
+  width: 100%;
+  font-size: 14px;
+  text-align: center;
+  margin-top: auto; /* Empuja al fondo si hay poco contenido */
+}
+
+
+.custom-footer {
+	padding: 0px 1;
+	text-align: center;
+	margin-top: 5px;
+}
+
+  .login-card {
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        .login-left {
+            background: linear-gradient(to bottom right, #14854f, #99dfbd);
+            color: white;
+            border-top-left-radius: 20px;
+            border-bottom-left-radius: 20px;
+            text-align: center;
+            padding: 2rem;
+        }
+        .login-left img {
+            width: 60%;
+        }
+        .role-btn {
+            margin: 0 5px;
+        }

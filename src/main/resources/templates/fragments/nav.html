@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<meta charset="UTF-8">
+<title>Menú Principal</title>
+<!-- Bootstrap 5 -->
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+	rel="stylesheet">
+
+</head>
+<body>
+	<!-- Menú de navegaciónclass="navbar navbar-expand-lg custom-header" -->
+	<nav th:fragment="nav-principal" class="navbar navbar-expand-lg">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="/"> <img alt="Inicio " width="40"
+				height="40" th:src="@{/images/logo.png}"></a>
+
+			<button class="navbar-toggler" type="button"
+				data-bs-toggle="collapse" data-bs-target="#navbarNav">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav me-auto">
+					<li class="nav-item"><a class="nav-link" href="/">Inicio</a></li>
+					<!--<li class="nav-item">
+						<a th:href="@{/residencias/index}" class="nav-link">Residencias</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/categoria/inicio">Empresas</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link"href="/usuario/inicio">Alumnos</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/tabla">Tabla</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/venta/inicio">Venta</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/cliente/inicio">Cliente</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/vendedor/inicio">Vendedor</a>
+					</li>-->
+				</ul>
+				<!--  <a class="btn btn-primary me-2" th:href="@{/login}">Ingresar</a>
+                <button class="btn btn-primary" href="/usuario/crear">Registrarse</button> -->
+				<!-- <div class="mt-auto p-2">
+					 <span class="spamusu">Usuario: <span
+						sec:authentication="name"> </span>
+					</span>-->
+
+					<!-- Mostrar si el usuario ha iniciado sesión -->
+					<!--<div sec:authorize="isAuthenticated()"></div>
+					
+					 Mostrar si el usuario NO ha iniciado sesión 
+					<div sec:authorize="isAnonymous()">
+						<spam class="spamsu">Visitante</spam>
+					</div>
+-->
+					<!-- <div text:authentication="name" th:if="${name != null}">
+
+						<span class="spamusu" sec:authentication="name"></span>&nbsp;
+						&nbsp; <span class="spamusu"
+							sec:authentication="principal.authorities"></span>
+
+					</div>
+
+					<div sec:authentication="name" th:if="${name == null}">
+						<p>No hay sesión iniciada.</p>
+					</div>
+
+					 <span class="spamusu" sec:authentication="name"></span> &nbsp;
+					&nbsp; <span class="spamusu"
+						sec:authentication="principal.authorities"></span>
+				</div>-->
+				<div class="mt-auto p-2">
+				<!-- Mostrar si el usuario ha iniciado sesión -->
+					<div sec:authorize="isAuthenticated()"></div>
+				</div>
+				
+				<!-- Spring security final y funcional -->
+				<div class="mt-auto p-2">
+					<form th:action="@{/logout}" method="post">
+						<div class="" sec:authorize="isAuthenticated()">
+							<span class="spamusu" sec:authentication="name"></span>&nbsp;&nbsp;
+							<span class="spamusu" sec:authorize="hasRole('ESTUDIANTE')">Estudiante</span>
+							<span class="spamusu" sec:authorize="hasRole('ASESOR')">Asesor Interno</span>
+							<span class="spamusu" sec:authorize="hasRole('ADMIN')">Administrador</span>
+							
+							<button class="btn btn-dark role-btn" type="submit">Cerrar
+								Sesión</button>
+						</div>
+						<div sec:authorize="isAnonymous()">
+							<spam class="spamusu">VISITANTE</spam>
+							<a class="btn btn-success me-2" th:href="@{/login}">Ingresar</a>
+						</div>
+
+					</form>
+				</div>
+
+			</div>
+		</div>
+	</nav>
+
+	<!-- Scripts de Bootstrap -->
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+		crossorigin="anonymous"></script>
+</body>
+</html>

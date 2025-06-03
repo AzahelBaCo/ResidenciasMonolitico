@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeLeaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" th:href="@{/css/estilo.css}">
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+	rel="stylesheet">
+</head>
+<body>
+
+	<!-- Header -->
+	<header th:replace="~{fragments/nav :: nav-principal}"
+		class="custom-header"></header>
+
+	<!-- Tabla -->
+	<div class="flex-center">
+		<div class="container table-section">
+			<div class="div justify-content-center mb-3">
+				<h2 class="mb-4">Escuelas Registradas</h2>
+				<a th:href="@{/escuela/crear}" class="btn x-4 py-2 fs-5 btn-success m-2">Nuevo</a>
+			</div>
+			<table class="table table-striped table-bordered">
+				<thead class="table-dark">
+					<tr>
+						<th>ID</th>
+						<th>Nombre</th>
+						<th>Dirección</th>
+						<th>Correo</th>
+						<th>Acciones</th>
+					</tr>
+				</thead>
+				<tbody class="text-center">
+					<tr th:each="escuela : ${a}">
+						<td th:text="${escuela.id_escuela}">1</td>
+						<td th:text="${escuela.nombre}">Nombre</td>
+						<td th:text="${escuela.direccion}">Dirección</td>
+						<td th:text="${escuela.correo}">Correo</td>
+						<td>
+						<a th:href="@{/escuela/editar/{id} (id=${escuela.id_escuela})}"
+							class="btn btn-primary"> Editar </a>
+							<a th:href="@{/escuela/eliminar/{id} (id=${escuela.id_escuela})}"
+							class="btn btn-danger" onclick="return confirmarEliminacion()">
+								Borrar </a> <script>
+						    function confirmarEliminacion() {
+						        return confirm("¿Seguro de que se elimine?");
+						    }
+						</script></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+<!-- Botón de volver fuera de la tarjeta -->
+	<div class="d-flex justify-content-center mb-2">
+		<button class="btn btn-secondary btn-sm mb-3"
+			onclick="history.back()">← Volver</button>
+	</div>
+
+	<!-- Footer -->
+	<footer th:insert="~{fragments/footer :: pie-pagina}"
+		class="footer custom-footer"></footer>
+</body>
+</html>
